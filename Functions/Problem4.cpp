@@ -9,7 +9,7 @@ void perfectNumber(int n)
     {
         for (int j = 1; j <= i; j++)
         {
-            if (i % j == 0)
+            if (i % j == 0 && j != i)
             {
                 sum += j;
             }
