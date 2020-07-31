@@ -15,7 +15,6 @@ void perfectNumber(int n)
             }
         }
 
-        cout << sum << " " << i << endl;
         if (sum == i) cout << i << endl;
         sum = 0;
     }

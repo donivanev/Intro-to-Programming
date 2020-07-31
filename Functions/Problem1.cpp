@@ -34,7 +34,7 @@ bool isGregorian(int d, int m, int y)
     return isDayCorrect && isMonthCorrect && isYearCorrect;
 }
 
-/*int main()
+int main()
 {
     int day, month, year;
 
@@ -51,4 +51,4 @@ bool isGregorian(int d, int m, int y)
     }
 
     return 0;
-}*/
+}

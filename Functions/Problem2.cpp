@@ -16,7 +16,7 @@ int printNinKbasedSystem(int n, int k)
     return s;
 }
 
-/*int main()
+int main()
 {
     int n, k;
     cout << "Enter n and k: ";
@@ -25,4 +25,4 @@ int printNinKbasedSystem(int n, int k)
     cout << printNinKbasedSystem(n, k) << endl;
 
     return 0;
-}*/
+}

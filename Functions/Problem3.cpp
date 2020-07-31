@@ -16,7 +16,7 @@ bool isSumDivisibleBy3(int n)
     return false;
 }
 
-/*int main()
+int main()
 {
     int n;
     cout << "Enter a number: ";
@@ -25,4 +25,4 @@ bool isSumDivisibleBy3(int n)
     cout << isSumDivisibleBy3(n) << endl;
 
     return 0;
-}*/
+}
