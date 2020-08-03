@@ -28,7 +28,7 @@ void bijectionString(char* s1, char* s2)
 
 }
 
-/*int main()
+int main()
 {
     char s1[255];
     char s2[255];
@@ -40,4 +40,4 @@ void bijectionString(char* s1, char* s2)
     bijectionString(s1, s2);
 
     return 0;
-}*/
+}
