@@ -11,7 +11,7 @@ double gcd(unsigned m, unsigned int n)
     return m;
 }
 
-/*int main()
+int main()
 {
     unsigned int m;
     unsigned int n;
@@ -23,4 +23,4 @@ double gcd(unsigned m, unsigned int n)
     cout << gcd(m, n);
 
     return 0;
-}*/
+}

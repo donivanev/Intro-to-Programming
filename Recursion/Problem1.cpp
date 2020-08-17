@@ -15,7 +15,7 @@ double ermit(double x, unsigned int n)
     return 2 * x * ermit(x, n - 1) + 2 * (n - 1) * ermit(x, n - 2);
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     double x;
@@ -23,4 +23,4 @@ double ermit(double x, unsigned int n)
     cout << ermit(5, 5);
 
     return 0;
-}*/
+}

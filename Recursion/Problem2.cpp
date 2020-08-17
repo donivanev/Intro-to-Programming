@@ -11,7 +11,7 @@ double mult(unsigned m, unsigned int n)
     return m + mult(m, n - 1);
 }
 
-/*int main()
+int main()
 {
     unsigned int m;
     unsigned int n;
@@ -23,4 +23,4 @@ double mult(unsigned m, unsigned int n)
     cout << mult(m, n);
 
     return 0;
-}*/
+}
