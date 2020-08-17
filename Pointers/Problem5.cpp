@@ -37,12 +37,12 @@ void testCase(int* arrays[], int npointers, int arrlengths[], bool expectedResul
 
     if (passed)
     {
-        std::cout << "Test case PASSED.\n";
+        cout << "Test case PASSED." << endl;
         passedTestCases++;
     }
     else
     {
-        cout << "Test case FAILED.\n";
+        cout << "Test case FAILED." << endl;
         cout << "Expected " << expectedResult << " Got: " << subarrays(arrays, npointers, arrlengths);
         failedTestCases++;
     }
