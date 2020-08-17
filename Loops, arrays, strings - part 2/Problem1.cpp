@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/*int main()
+int main()
 {
     int n, counter = 0;
     cout << "Enter n: ";
@@ -33,4 +33,4 @@ using namespace std;
     cout << "Equal elements: " << counter;
 
     return 0;
-}*/
+}

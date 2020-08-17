@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/*int main()
+int main()
 {
     int n, m;
     bool hasPoints = false;
@@ -49,4 +49,4 @@ using namespace std;
     if (hasPoints != true) cout << "No saddle points.";
 
     return 0;
-}*/
+}

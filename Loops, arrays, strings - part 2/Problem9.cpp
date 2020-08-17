@@ -56,7 +56,7 @@ void swappable(int n, int* a)
     counter == n ? cout << "This array is swappable." : cout << "This array is not swappable.";
 }
 
-/*int main()
+int main()
 {
     int n;
     cout << "Enter n: ";
@@ -72,4 +72,4 @@ void swappable(int n, int* a)
     swappable(n, a);
 
     return 0;
-}*/
+}

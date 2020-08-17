@@ -35,7 +35,7 @@ void unsortedness(int n, int *a)
     cout << "There are " << counter << " unsorted elements.";
 }
 
-/*int main()
+int main()
 {
     int n;
     cout << "Enter n: ";
@@ -51,4 +51,4 @@ void unsortedness(int n, int *a)
     unsortedness(n, a);
 
     return 0;
-}*/
+}

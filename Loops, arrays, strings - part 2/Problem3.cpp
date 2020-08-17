@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/*int main()
+int main()
 {
     int n, sum = 0;
     cout << "Enter n: ";
@@ -31,4 +31,4 @@ using namespace std;
     cout << "Sum of the elements below the main diagonal: " << sum;
 
     return 0;
-}*/
+}

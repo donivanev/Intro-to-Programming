@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-/*int main()
+int main()
 {
     int n;
     cout << "Enter n: ";
@@ -79,4 +79,4 @@ using namespace std;
         cout << "The sentence at the main diagonal is not the same as the sentence at the reversed diagonal."; 
 
     return 0;
-}*/
+}

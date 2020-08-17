@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/*int main()
+int main()
 {
     int n, counter = 0;
     bool flag = false;
@@ -36,4 +36,4 @@ using namespace std;
     flag ? cout << "Similar sequences." : cout << "Not similar sequences.";
 
     return 0;
-}*/
+}

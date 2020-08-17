@@ -51,7 +51,7 @@ void printMatrix(int n, int m, int a[][50])
     }
 }
 
-/*int main()
+int main()
 {
     int n, m;
     cout << "Enter n: ";
@@ -87,4 +87,4 @@ void printMatrix(int n, int m, int a[][50])
     printMatrix(n, m, a2);
 
     return 0;
-}*/
+}
