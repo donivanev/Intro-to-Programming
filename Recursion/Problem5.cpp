@@ -21,7 +21,7 @@ int mult1toN(unsigned n, unsigned int k, int c)
     return c * mult1toN(n, k, c + k);
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     unsigned int k;
@@ -33,4 +33,4 @@ int mult1toN(unsigned n, unsigned int k, int c)
     cout << mult1toN(n, k, 1);
 
     return 0;
-}*/
+}

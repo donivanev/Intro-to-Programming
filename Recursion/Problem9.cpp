@@ -17,7 +17,7 @@ int max(int n, int *a)
 	return getMax(max(n - 1, a), a[n - 1]);
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     cout << "Enter n: ";
@@ -32,4 +32,4 @@ int max(int n, int *a)
     cout << max(n, a);
 
     return 0;
-}*/
+}

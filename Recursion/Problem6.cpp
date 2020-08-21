@@ -21,7 +21,7 @@ int toNumericalSystem(unsigned int n, unsigned int k)
     return (n % k + 10 * toNumericalSystem(n / k, k));
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     cout << "Enter n: ";
@@ -30,4 +30,4 @@ int toNumericalSystem(unsigned int n, unsigned int k)
     cout << sumDigits(toNumericalSystem(n, 2));
 
     return 0;
-}*/
+}

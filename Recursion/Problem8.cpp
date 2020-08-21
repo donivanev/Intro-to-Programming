@@ -10,13 +10,13 @@ bool isFromFibonacci(unsigned int n)
 
     //if ()
     //{
-
+        //???
     //}
 
     return isFromFibonacci(n - 1) + isFromFibonacci(n - 2);
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     cout << "Enter n: ";
@@ -25,4 +25,4 @@ bool isFromFibonacci(unsigned int n)
     cout << isFromFibonacci(n);
 
     return 0;
-}*/
+}

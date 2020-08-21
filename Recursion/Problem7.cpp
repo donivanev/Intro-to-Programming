@@ -16,7 +16,7 @@ bool isThereK(unsigned int n, unsigned int k)
     return isThereK(n / 10, k);
 }
 
-/*int main()
+int main()
 {
     unsigned int n;
     cout << "Enter n: ";
@@ -25,4 +25,4 @@ bool isThereK(unsigned int n, unsigned int k)
     cout << isThereK(n, 5);
 
     return 0;
-}*/
+}

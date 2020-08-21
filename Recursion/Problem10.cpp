@@ -20,13 +20,19 @@ void sort(long arr[], int n)
 
 void insertSorted(long x, long arr[], long n)
 {
-    
+    arr[n] = x;
+    sort(arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
 }
 
 int main()
 {
     long x = 0, n;
-    long arr[50];
+    long arr[50]; 
     cout << "Enter n: ";
     cin >> n;
 
