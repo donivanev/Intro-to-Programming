@@ -2,16 +2,14 @@
 #include <string>
 using namespace std;
 
-char* strduplicate(char* str)
+char* strduplicate(char* copyStr, char* str)
 {
-    char* copyStr = new char[strlen(str) + 1];
     strcpy_s(copyStr, strlen(str) + 1, str);
     
     //strcpy_s(copyStr, 50, str); ??
     //copyStr[strlen(str)] = '\0'; ?? 
 
     return copyStr;
-    delete[] copyStr;
 }
 
 /*int main()
@@ -20,7 +18,11 @@ char* strduplicate(char* str)
     cout << "Enter a string: ";
     cin >> str;
 
-    cout << strduplicate(str);
+    char* copyStr = new char[strlen(str) + 1];
+
+    cout << strduplicate(copyStr, str);
+
+    delete[] copyStr;
 
     return 0;
 }*/

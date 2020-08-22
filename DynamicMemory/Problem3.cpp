@@ -3,9 +3,8 @@
 #pragma warning (disable:4996)
 using namespace std;
 
-char* unite(char* str1, char* str2)
+char* unite(char* str, char* str1, char* str2)
 {  
-    char* str = new char[strlen(str1) + strlen(str2) + 1];
     //char* str = strcat(str1, str2);
     int index = 0;
 
@@ -52,10 +51,9 @@ char* unite(char* str1, char* str2)
     }
 
     return str;
-    delete[] str;
 }
 
-int main()
+/*int main()
 {
     char str1[50];
     char str2[50];
@@ -64,7 +62,11 @@ int main()
     cout << "Enter another string: ";
     cin >> str2;
 
-    cout << unite(str1, str2);
+    char* str = new char[strlen(str1) + strlen(str2) + 1];
+
+    cout << unite(str, str1, str2);
+
+    delete[] str;
 
     return 0;
-}
+}*/

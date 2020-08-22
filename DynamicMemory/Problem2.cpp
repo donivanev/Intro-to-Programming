@@ -2,18 +2,8 @@
 #include <string>
 using namespace std;
 
-char* transformToString(int n)
+char* transformToString(char* copyStr, int n, int counter)
 {
-    int counter = 0, helper = n;
-
-    while (helper != 0)
-    {
-        counter++;
-        helper /= 10;
-    }
-
-    char* copyStr = new char[counter + 1];
-
     for (int i = 0; i < counter; i++)
     {
         copyStr[i] = '0' + (char)(n % 10);
@@ -30,7 +20,6 @@ char* transformToString(int n)
     }
 
     return copyStr;
-    delete[] copyStr;
 }
 
 /*int main()
@@ -39,7 +28,19 @@ char* transformToString(int n)
     cout << "Enter n: ";
     cin >> n;
 
-    cout << transformToString(n);
+    int counter = 0, helper = n;
+
+    while (helper != 0)
+    {
+        counter++;
+        helper /= 10;
+    }
+
+    char* copyStr = new char[counter + 1];
+
+    cout << transformToString(copyStr, n, counter);
+
+    delete[] copyStr;
 
     return 0;
 }*/
