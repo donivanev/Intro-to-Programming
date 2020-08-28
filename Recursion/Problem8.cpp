@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-bool isFromFibonacci(unsigned int n)
+bool isFromFibonacci(unsigned int n, int twoPrevious = 0, int previous = 1)
 {
-    if (n == 0 || n == 1)
+    if (n == twoPrevious || n == previous)
     {
         return true;
     }
 
-    //if ()
-    //{
-        //???
-    //}
+    int currentFibonacciNumber = twoPrevious + previous;
 
-    return isFromFibonacci(n - 1) + isFromFibonacci(n - 2);
+    if (currentFibonacciNumber == n) return true;
+    else return false;
+    
+    return isFromFibonacci(n, previous, currentFibonacciNumber);
 }
 
 int main()
