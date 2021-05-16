@@ -1,56 +1,119 @@
 //
 // СУ "Св. Климент Охридски"
 // Факултет по математика и информатика
-// Курс Увод в програмирането 2020/21
-// Контролно 1
-// 2020-11-29
+// Курс Увод в Програмирането 2020/21
+// Контролно 2
+// 2021-01-17
 //
-// Начален час: 9:00
-// Име: Дони
+// Име: Дони Иванов
 // ФН: 81992
-// Специалност: КН 1
+// Специалност: Компютърни науки
 // Курс: 2
-// Административна група: 2
-// Използван компилатор: VS
+// Административна група: 2 
+// Използван компилатор: Visual Studio
 //
 
 #include <iostream>
 using namespace std;
 
+void print(int* arr, int size)
+{
+	if (size == 0)
+	{
+		return;
+	}
+
+	cout << *arr << endl;
+	return print(arr + 1, --size);
+}
+
+bool isSorted(int* arr, int index, int size)
+{
+	if (index == size)
+	{
+		return true;
+	}
+
+	return (*arr < *(arr + 1)) && isSorted(arr + 1, index + 1, size);
+}
+
+void copyArray(int* arr, int size, int* helperArr)
+{
+	if (size == 0)
+	{
+		return;
+	}
+
+	*helperArr = *arr;
+	copyArray(arr + 1, --size, helperArr + 1);
+}
+
+void expandArray(int* arr, int& size)
+{
+	int* resize_arr = new(nothrow) int[size + 1];
+
+	int s = size;
+	copyArray(arr, s, resize_arr);
+
+	++size;
+	arr = resize_arr;
+	delete[] resize_arr;
+}
+
+void insertInArray(int* arr, int size, int index, int x)
+{
+	if (size == index)
+	{
+		arr[index] = x;
+		return;
+	}
+
+	*(arr + size) = *(arr + size - 1);
+	insertInArray(arr + 1, --size, index, x);
+}
+
+void insertInSorted(int* arr, int size, int s, int index, int x)
+{
+	if (s == 0)
+	{
+		return;
+	}
+	if (x < *arr)
+	{
+		expandArray(arr, size);
+		insertInArray(arr, size, x, index);
+		return;
+	}
+
+	insertInSorted(arr + 1, size, --s, index + 1, x);
+}
+
 int main()
 {
-    unsigned a, b;
-	cout << "Enter a: ";
-	cin >> a;
-	cout << "Enter b: ";
-	cin >> b;
+	int n;
+	cin >> n;
 
-	bool a4 = (a | 0);
-	bool a3 = (a | 1);
-	bool a2 = (a & 100);
-	bool a1 = (a & 1000);
-	//cout << !a1 << " " << !a2 << " " << !a3 << " " << !a4 << endl;
+	int* arr = new(nothrow) int[n]; 
 
-	bool b4 = (a | 0);
-	bool b3 = (a | 1);
-	bool b2 = (a & 100);
-	bool b1 = (a & 1000);
-	//cout << b1 << " " << b2 << " " << b3 << " " << b4 << endl;
-
-	//cout << (a1 | b1) << " " << (a2 | b2) << " " << (a3 | b3) << " " << (a4 | b4);
-	bool sumBit = 0;
-
-	while (a != 0)
+	for (size_t i = 0; i < n; i++)
 	{
-		bool aRemainder = a % 10;
-		bool bRemainder = b % 10;
-		sumBit = aRemainder | bRemainder;
-		cout << sumBit;
-		a /= 10;
-		b /= 10;
+		cin >> arr[i];
 	}
+
+	print(arr, n);
+	cout << "Is array sorted: " << isSorted(arr, 1, n);
+
+	int* resize_arr = new(nothrow) int[n + 1];
+
+	//copyArray(arr, n, resize_arr);
+	//expandArray(arr, n);
+	//insertInArray(arr, n, 3, 5);
+	insertInSorted(arr, n, n, 3, 5);
+
+	print(arr, n);
+
+	delete[] resize_arr;
+	delete[] arr;
 
     return 0;
 }
-
-

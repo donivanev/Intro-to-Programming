@@ -1,68 +1,164 @@
 //
 // СУ "Св. Климент Охридски"
 // Факултет по математика и информатика
-// Курс Увод в програмирането 2020/21
-// Контролно 1
-// 2020-11-29
+// Курс Увод в Програмирането 2020/21
+// Контролно 2
+// 2021-01-17
 //
-// Начален час: 9:00
-// Име: Дони
+// Име: Дони Иванов
 // ФН: 81992
-// Специалност: КН 1
+// Специалност: Компютърни науки
 // Курс: 2
-// Административна група: 2
-// Използван компилатор: VS
+// Административна група: 2 
+// Използван компилатор: Visual Studio
 //
 
-bool isPrime(int number)
-{
-	if (number <= 1) return false;
+#include <iostream>
+using namespace std;
 
-	for (size_t i = 2; i < number; i++)
+const int MAX_COLS = 100;
+
+void deleteMatrix(char** matrix, int rows)
+{
+	for (size_t i = 0; i < rows; i++)
 	{
-		if (number % i == 0) return false;
+		delete[] matrix[i];
 	}
 
-	return true;
+	delete[] matrix;
 }
 
-int countOfDivisors(int number)
+char** allocateMatrix(int rows, int cols)
 {
-	unsigned counter = 0;
+	char** matrix = new(nothrow) char* [rows];
+	if (!matrix) return matrix;
 
-	for (size_t i = 2; i < number; i++)
+	for (size_t i = 0; i < rows; i++)
 	{
-		if (number % i == 0)
+		matrix[i] = new(nothrow) char[cols];
+
+		if (!matrix[i])
 		{
-			counter++;
+			deleteMatrix(matrix, i);
+			return nullptr;
+		}
+	}
+
+	return matrix;
+}
+
+void readMatrix(char** matrix, int rows)
+{
+	for (size_t i = 0; i < rows; i++)
+	{
+		cin.getline(matrix[i], 100);
+	}
+}
+
+void showMatrix(char** matrix, int rows)
+{
+	for (size_t i = 0; i < rows; i++)
+	{
+		cout << matrix[i] << endl;
+	}
+}
+
+bool isLetter(char c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_')
+	{
+		return true;
+	}
+
+	return false;
+}
+
+int countWords(const char* text)
+{
+	int counter = 0;
+
+	while (*text)
+	{
+		while (*text && !isLetter(*text))
+		{
+			++text;
+		}
+		if (*text)
+		{
+			++counter;
+		}
+		while (isLetter(*text))
+		{
+			++text;
 		}
 	}
 
 	return counter;
 }
 
-#include <iostream>
-using namespace std;
-
-int main()
+int extractWords(const char* text, char*** wordsPtr)
 {
-	unsigned int a, b, counter = 0;
-	cout << "Enter a: ";
-	cin >> a;
-	cout << "Enter b: ";
-	cin >> b;
+	int len = countWords(text);
+	*wordsPtr = new(nothrow) char* [len];
+	if (!*wordsPtr) return 0;
 
-	for (size_t i = a; i < b; i++)
+	for (size_t i = 0; i < len; i++)
 	{
-		if (isPrime(countOfDivisors(i)))
+		while (*text && !isLetter(*text))
 		{
-			counter++;
+			++text;
+		}
+
+		if (*text)
+		{
+			const char* start = text;
+			while (isLetter(*text))
+			{
+				++text;
+			}
+
+			int len = text - start;
+			*(wordsPtr)[i] = new(nothrow) char[len + 1];
+			if (!*(wordsPtr)[i])
+			{
+				cout << "Memory problem with letter " << i;
+				return i; 
+			}
+
+			for (size_t pos = 0; pos < len; pos++)
+			{
+				*(wordsPtr)[i][pos] = start[pos];
+			}
+			*(wordsPtr)[i][len] = '\0';
 		}
 	}
 
-	cout << counter;
+	return len;
+}
+
+int main()
+{
+	int n;
+	cin >> n;
+
+	char** words = allocateMatrix(n + 1, MAX_COLS);
+
+	readMatrix(words, n + 1);
+	showMatrix(words, n + 1);
+
+	int m;
+	cin >> m;
+	char* text = new(nothrow) char[m + 1];
+
+	cin.ignore();
+	cin.getline(text, m + 1);
+	cout << text;
+
+	//char** wordsInText = allocateMatrix(n + 1, MAX_COLS);
+	//int len = extractWords(text, &wordsInText);
+
+	deleteMatrix(words, n + 1);
+	delete[] text;
 
 	return 0;
 }
-
-
